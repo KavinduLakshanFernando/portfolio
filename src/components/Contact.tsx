@@ -77,20 +77,18 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 py-20 px-4">
+    <div id="contact" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 py-15 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header with Animation */}
         <div className="text-center mb-16 animate-fadeIn">
           <div className="inline-block mb-4">
-            <MessageCircle className="w-16 h-16 text-blue-400 animate-bounce" />
+            {/* <MessageCircle className="w-16 h-16 text-blue-400 animate-bounce" /> */}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In <span className="text-blue-400">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 animate-expandWidth"></div>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
-          </p>
+    
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">

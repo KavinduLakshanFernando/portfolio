@@ -27,7 +27,7 @@ export default function PortfolioNavbar() {
             <div className="flex-shrink-0">
               <a
                 href="#home"
-                className="flex items-center space-x-2 text-xl font-bold text-white hover:text-blue-400 transition-colors duration-300"
+                className="flex items-center space-x-2 text-2xl font-bold text-white hover:text-blue-400 transition-colors duration-300"
               >
                 <Code className="w-6 h-6" />
                 <span>Kavindu Lakshan</span>
@@ -35,12 +35,12 @@ export default function PortfolioNavbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8 ">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-bold transition-colors duration-300 relative group scroll-smooth"
+                  className="text-gray-300 hover:text-blue-400 px-3 py-2 text-xl font-stretch-ultra-expanded transition-colors duration-300 relative group scroll-smooth"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>

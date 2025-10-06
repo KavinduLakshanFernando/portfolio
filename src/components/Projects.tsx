@@ -74,20 +74,18 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 py-20 px-4">
+    <div id="projects" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 py-15 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <div className="inline-block mb-4">
-            <Folder className="w-16 h-16 text-blue-400 animate-bounce" />
+            {/* <Folder className="w-16 h-16 text-blue-400 animate-bounce" /> */}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Featured <span className="text-blue-400">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 animate-expandWidth"></div>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Explore my portfolio of web applications built with modern technologies
-          </p>
+         
         </div>
 
         {/* Projects Grid */}
