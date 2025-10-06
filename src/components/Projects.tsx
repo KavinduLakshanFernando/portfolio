@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { Github, Code, Folder } from "lucide-react";
+
 export default function Projects() {
+  const [hoveredId, setHoveredId] = useState(Number);
+
   const projects = [
     {
       id: 1,
@@ -8,6 +12,8 @@ export default function Projects() {
         "A full-featured online shopping platform with payment integration, inventory management, and real-time order tracking.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       icon: "🛒",
+      image:
+        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/ecommerce",
     },
     {
@@ -17,6 +23,8 @@ export default function Projects() {
         "Collaborative project management tool with real-time updates, team collaboration features, and progress tracking.",
       tech: ["React", "Firebase", "Tailwind", "Redux"],
       icon: "✅",
+      image:
+        "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/taskmanager",
     },
     {
@@ -26,6 +34,8 @@ export default function Projects() {
         "Analytics dashboard for social media management with data visualization, scheduling, and engagement metrics.",
       tech: ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"],
       icon: "📊",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/dashboard",
     },
     {
@@ -35,6 +45,8 @@ export default function Projects() {
         "Property listing platform with advanced search filters, virtual tours, and appointment booking system.",
       tech: ["React", "Express", "MySQL", "Google Maps API"],
       icon: "🏠",
+      image:
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/realestate",
     },
     {
@@ -44,6 +56,8 @@ export default function Projects() {
         "Online education platform with video streaming, quizzes, progress tracking, and certification system.",
       tech: ["React", "Node.js", "AWS", "Socket.io"],
       icon: "📚",
+      image:
+        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/lms",
     },
     {
@@ -53,76 +67,134 @@ export default function Projects() {
         "Patient-doctor appointment booking system with telemedicine features and medical records management.",
       tech: ["React", "Django", "PostgreSQL", "WebRTC"],
       icon: "🏥",
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
       github: "https://github.com/yourusername/healthcare",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-black mb-4">
-            Featured Projects
+        <div className="text-center mb-16 animate-fadeIn">
+          <div className="inline-block mb-4">
+            <Folder className="w-16 h-16 text-blue-400 animate-bounce" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Featured <span className="text-blue-400">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 animate-expandWidth"></div>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Explore my portfolio of web applications built with modern technologies
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(Number)}
+              className="bg-gray-800 border-2 border-blue-500 rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/50 hover:-translate-y-3 transition-all duration-500 cursor-pointer"
+              style={{ animation: `slideUp 0.6s ease-out ${index * 0.1}s both` }}
             >
-              {/* Icon */}
-              <div className="text-5xl mb-4">{project.icon}</div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-black mb-3">
-                {project.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 mb-5 leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="relative h-48 overflow-hidden bg-gray-900">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`w-full h-full object-cover transition-all duration-700 ${
+                    hoveredId === project.id ? "scale-125 rotate-2" : "scale-100"
+                  }`}
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-gray-800 via-gray-800/50 to-transparent transition-opacity duration-500 ${
+                    hoveredId === project.id ? "opacity-80" : "opacity-60"
+                  }`}
+                ></div>
+                <div
+                  className={`absolute top-4 right-4 text-4xl bg-gray-800 bg-opacity-90 rounded-full w-16 h-16 flex items-center justify-center border-2 border-blue-500 transition-all duration-500 ${
+                    hoveredId === project.id ? "scale-110 rotate-12" : "scale-100"
+                  }`}
+                >
+                  {project.icon}
+                </div>
+                <div
+                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
+                    hoveredId === project.id ? "opacity-100 scale-100" : "opacity-0 scale-50"
+                  }`}
+                >
+                  <Code className="w-16 h-16 text-blue-400" />
+                </div>
               </div>
 
-              {/* Button */}
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                View on GitHub
-              </a>
+              <div className="p-6">
+                <h3
+                  className={`text-2xl font-bold mb-3 transition-all duration-300 ${
+                    hoveredId === project.id
+                      ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+                      : "text-white"
+                  }`}
+                >
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-5 leading-relaxed text-sm">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className={`bg-gray-900 text-blue-400 px-3 py-1 rounded-full text-xs font-medium border border-blue-500 transition-all duration-300 ${
+                        hoveredId === project.id ? "border-blue-400 bg-blue-500/10 scale-105" : ""
+                      }`}
+                      style={{
+                        transitionDelay: hoveredId === project.id ? `${techIndex * 50}ms` : "0ms",
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-blue-500/50 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Github className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" />
+                  <span>View on GitHub</span>
+                  <span className={`transform transition-transform duration-300 ${hoveredId === project.id ? "translate-x-1" : ""}`}>
+                    →
+                  </span>
+                </a>
+              </div>
+
+              <div
+                className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 origin-left transition-transform duration-500"
+                style={{ transform: hoveredId === project.id ? "scaleX(1)" : "scaleX(0)" }}
+              ></div>
             </div>
           ))}
         </div>
       </div>
+      {/* Global CSS Animations */}
+      <style>{`
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes expandWidth {
+          from { width: 0; }
+          to { width: 5rem; }
+        }
+        .animate-fadeIn { animation: fadeIn 1s ease-out; }
+        .animate-expandWidth { animation: expandWidth 1s ease-out 0.5s both; }
+      `}</style>
     </div>
   );
 }
