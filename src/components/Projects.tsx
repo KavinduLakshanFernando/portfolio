@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Github, Code } from "lucide-react";
 import img from "../assets/ProjectsImages/img.png"
 import ecommerce from "../assets/ProjectsImages/ecommerce.png"

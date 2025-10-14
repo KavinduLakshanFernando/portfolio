@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, Code, ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import resume from '../assets/My-Resume.pdf';

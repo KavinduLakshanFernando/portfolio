@@ -124,14 +124,14 @@ export default function Contact() {
                   <div className="flex items-center gap-4">
                     <div
                       className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${hoveredContact === contact.id
-                          ? `${contact.bgColor} ${contact.borderColor} scale-110 rotate-12`
-                          : "bg-gray-900 border-blue-500"
+                        ? `${contact.bgColor} ${contact.borderColor} scale-110 rotate-12`
+                        : "bg-gray-900 border-blue-500"
                         }`}
                     >
                       <div
                         className={`${hoveredContact === contact.id
-                            ? "text-white"
-                            : "text-blue-400"
+                          ? "text-white"
+                          : "text-blue-400"
                           } transition-colors`}
                       >
                         {contact.icon}
@@ -143,8 +143,8 @@ export default function Contact() {
                       </h3>
                       <p
                         className={`font-semibold text-sm sm:text-base ${hoveredContact === contact.id
-                            ? "text-blue-400 translate-x-2"
-                            : "text-white"
+                          ? "text-blue-400 translate-x-2"
+                          : "text-white"
                           } transition-all`}
                       >
                         {contact.value}
@@ -201,9 +201,9 @@ export default function Contact() {
               </h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 {[
-                  { label: "Name", name: "name", value: "Kavindu Lakshan", readOnly: true },
-                  { label: "Email", name: "email", value: "kavindu009lakshan@gmail.com", readOnly: true },
-                  { label: "Subject", name: "subject", value: formData.subject, readOnly: false },
+                  { label: "Name", name: "name", placeholder: "Enter your name" },
+                  { label: "Email", name: "email", placeholder: "Enter your email" },
+                  { label: "Subject", name: "subject", placeholder: "Enter subject" },
                 ].map((field) => (
                   <div key={field.name}>
                     <label className="block text-gray-300 font-semibold mb-2 capitalize">
@@ -212,12 +212,11 @@ export default function Contact() {
                     <input
                       type={field.name === "email" ? "email" : "text"}
                       name={field.name}
-                      value={field.value}
-                      readOnly={field.readOnly}
-                      onChange={field.readOnly ? undefined : handleChange}
-                      className={`w-full bg-gray-900 border-2 border-blue-500 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all ${field.readOnly ? "cursor-not-allowed opacity-70" : ""
-                        }`}
-                      placeholder={field.label}
+                      value={formData[field.name as keyof typeof formData] || ""}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border-2 border-blue-500 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all"
+                      placeholder={field.placeholder}
+                      required
                     />
                   </div>
                 ))}
@@ -233,8 +232,10 @@ export default function Contact() {
                     rows={5}
                     className="w-full bg-gray-900 border-2 border-blue-500 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all resize-none"
                     placeholder="Tell me about your project..."
+                    required
                   />
                 </div>
+
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-blue-500/50 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
@@ -245,6 +246,7 @@ export default function Contact() {
               </form>
             </div>
           </div>
+
         </div>
       </div>
 
