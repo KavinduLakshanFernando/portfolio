@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X, Code, ChevronDown, Github, Linkedin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import resume from '../assets/kavindu-Resume.pdf';
+import img from '../assets/IMG-20240125-WA0011.jpg'
 
 export default function PortfolioNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -158,7 +159,7 @@ export default function PortfolioNavbar() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full"></div>
             <div className="absolute inset-3 bg-gray-800 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl">
               <img
-                src="../src/assets/IMG-20240125-WA0011.jpg"
+                src={img}
                 alt="Kavindu Lakshan"
                 className="w-full h-full object-cover"
               />
