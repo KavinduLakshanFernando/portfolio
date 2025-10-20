@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Github, Code } from "lucide-react";
 import img from "../assets/ProjectsImages/img.png"
 import ecommerce from "../assets/ProjectsImages/ecommerce.png"
-import curior from "../assets/ProjectsImages/curior.png"
-import bookClub from "../assets/ProjectsImages/bookClub.png"
-import portfolio from "../assets/ProjectsImages/portfolio.png"
+import curior from "../assets/ProjectsImages/Curior.png"
+import bookClub from "../assets/ProjectsImages/BookClub.png"
+import portfolio from "../assets/ProjectsImages/Portfolio.png"
 import diary from "../assets/ProjectsImages/diary.jpg"
 
 export default function Projects() {
