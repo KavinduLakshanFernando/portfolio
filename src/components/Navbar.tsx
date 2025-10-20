@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, Code, ChevronDown, Github, Linkedin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import resume from '../assets/My-Resume.pdf';
+import resume from '../assets/kavindu-Resume.pdf';
 
 export default function PortfolioNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
